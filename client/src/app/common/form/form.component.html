@@ -1,0 +1,9 @@
+<h2 *ngIf='formTitle'
+    class='form__title'>
+  {{formTitle}}
+</h2>
+<form class='form'
+      [formGroup]='form'
+      (ngSubmit)='_onSubmit()'>
+  <ng-content></ng-content>
+</form>

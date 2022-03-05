@@ -1,0 +1,182 @@
+@import 'constants';
+
+.form-field {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-width: 245px;
+    margin-bottom: 30px;
+
+    &.disabled {
+        cursor: not-allowed;
+
+        button {
+            visibility: hidden;
+        }
+    }
+
+    &.invalid-input {
+        border-color: #f44336;
+
+        .form-field__icon-prefix,
+        .form-field__input-wrapper {
+            border-color: #f44336;
+            color: #f44336;
+        }
+
+        .form-field__label.shift-label,
+        .form-field__input:focus~.form-field__label {
+            background-color: #f44336;
+            color: #000;
+        }
+
+        .form-field__label:not(.shift-label) {
+            color: #f44336;
+        }
+
+        .form-field__input:not(:focus) {
+            color: #f44336;
+
+            &~button {
+                color: #f44336;
+            }
+        }
+    }
+
+    &:not(.invalid-input):hover,
+    &:not(.invalid-input) .form-field__wrapper.has-focus {
+
+        .form-field__icon-prefix,
+        .form-field__input-wrapper {
+            border-color: #fff;
+        }
+
+        .form-field__label.shift-label {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .form-field__icon-prefix {
+            color: #fff;
+        }
+
+        .form-field__input {
+            color: #fff;
+
+            &~button {
+                color: #fff;
+            }
+        }
+    }
+
+    .mat-icon-button {
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+    }
+}
+
+.form-field__wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.form-field__icon-prefix {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 45px;
+    box-sizing: border-box;
+    border: 2px solid #6a6c6c;
+    border-right: none;
+    border-radius: 50px 0 0 50px;
+    flex-shrink: 0;
+    transition: transition(border-color), transition(color);
+    color: #a2a3a3;
+
+    .mat-icon {
+        font-size: 22px;
+        width: 22px;
+        height: 22px;
+    }
+}
+
+.form-field__input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 45px;
+    box-sizing: border-box;
+    padding: 0 5px;
+    border-radius: 0 50px 50px 0;
+    border: 2px solid #6a6c6c;
+    transition: transition(border-color);
+}
+
+.form-field__input {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    outline: none;
+    color: #cfcfcf;
+    margin-right: 5px;
+
+    &:focus~.form-field__label,
+    &:not(:focus)~.shift-label {
+        transform: translateY(-32px);
+        padding: 2.75px 15px 2px;
+    }
+
+    &:focus {
+        color: #fff;
+
+        &~button {
+            color: #fff;
+        }
+    }
+
+    &:focus~.form-field__label {
+        background-color: #fff;
+        color: #000;
+    }
+
+    &:not(:focus):not(.ng-invalid)~.shift-label {
+        background-color: #6a6c6c;
+        color: #fff;
+    }
+
+    &:not(:focus).ng-pristine~.shift-label {
+        background-color: #6a6c6c;
+        color: #fff;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+
+    &~button {
+        color: #a5a5a5;
+        transition: transition(color);
+    }
+}
+
+.form-field__label {
+    position: absolute;
+    opacity: 1;
+    transition: transition(transform), transition(font-size), transition(color), transition(background-color), transition(padding);
+    color: #a2a3a3;
+    font-size: 0.9rem;
+    padding: 2px 5px;
+    background-color: transparent;
+    pointer-events: none;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    box-sizing: border-box;
+}
+
+.form-field__clear {
+    margin-left: auto;
+    flex-shrink: 0;
+}

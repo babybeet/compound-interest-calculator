@@ -1,0 +1,28 @@
+<kun-form-field #formField
+                [label]='label'
+                [control]='control'
+                [prefixIcon]='prefixIcon'
+                [hasPlaceholder]='placeholder.length > 0'>
+    <input #input
+           class='form-field__input'
+           [type]='type'
+           [placeholder]='placeholder'
+           [autofocus]='autofocus'
+           [formControl]='control'
+           (focus)='formField.focus()'
+           (blur)='formField.blur()' />
+
+    <button mat-icon-button
+            type='button'
+            class='form-field__clear'
+            tdzTooltip='Clear this form field'
+            [style.visibility]='input.value.length > 0 && !control.disabled ? "visible" : "hidden"'
+            [attr.aria-label]='"Clear " + label + " form field"'
+            (click)='formField.clear(input)'>
+        <mat-icon>close</mat-icon>
+        <kun-ripple-on-hover></kun-ripple-on-hover>
+    </button>
+</kun-form-field>
+<kun-error-list [label]='label'
+                [control]='control'>
+</kun-error-list>

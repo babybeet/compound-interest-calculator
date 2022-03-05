@@ -1,0 +1,13 @@
+.select-form-field.form-field {
+    margin-bottom: 0;
+
+    .form-field__clear {
+        position: absolute;
+        top: 15px;
+        transform: translateX(-65px);
+    }
+
+    .error-list {
+        transform: translateY(-20px);
+    }
+}

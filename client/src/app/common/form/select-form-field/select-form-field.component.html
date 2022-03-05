@@ -1,0 +1,24 @@
+<mat-form-field [appearance]='appearance || "outline"'>
+    <mat-label>{{label}}</mat-label>
+    <mat-select #matSelect
+                [formControl]='control'>
+        <mat-option *ngFor='let option of options'
+                    [value]='option.value'>
+            {{option.label}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+<button mat-icon-button
+        type='button'
+        class='form-field__clear'
+        tdzTooltip='Clear this form field'
+        [style.visibility]='_isClearSelectionButtonVisible(matSelect) ? "visible" : "hidden"'
+        [attr.aria-label]='"Clear " + label + " form field"'
+        (click)='_clearSelection()'>
+    <mat-icon>close</mat-icon>
+    <kun-ripple-on-hover></kun-ripple-on-hover>
+</button>
+<kun-error-list [label]='
+                    label'
+                [control]='control'>
+</kun-error-list>

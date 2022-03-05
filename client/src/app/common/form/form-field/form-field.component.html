@@ -1,0 +1,14 @@
+<div class='form-field__wrapper'
+     [class.has-focus]='_hasFocus$ | async'>
+    <div class='form-field__icon-prefix'>
+        <mat-icon>{{prefixIcon}}</mat-icon>
+    </div>
+    <div class='form-field__input-wrapper'>
+        <ng-content></ng-content>
+        <label class='form-field__label'
+               [class.shift-label]='control.value.length > 0 || hasPlaceholder'>
+            {{label}}
+        </label>
+        <ng-content select='button'></ng-content>
+    </div>
+</div>

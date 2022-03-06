@@ -28,7 +28,7 @@ export class ErrorListComponent implements OnInit {
         .map(entry => {
           switch (entry[0]) {
             case 'required':
-              return `${this.label} is **required**`;
+              return `${this.label} is <strong>required</strong>`;
             case 'email':
               return `${this.label} is not valid`;
             case 'min':

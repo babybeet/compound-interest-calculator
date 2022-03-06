@@ -20,7 +20,7 @@ export class ShortTextFormFieldComponent implements OnInit {
   control: FormControl;
 
   @Input()
-  type?: 'text' | 'email';
+  type?: 'text' | 'email' | 'number';
 
   @Input()
   placeholder?: string;

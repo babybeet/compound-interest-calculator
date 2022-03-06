@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "scripts": {
         "prepare": "husky install",
-        "start:client": "cd client && npm start"
+        "start": "cd client && npm start",
+        "build": "cd client && npm run build -- --base-href=/compound-interest-calculator/"
     },
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^5.13.0",

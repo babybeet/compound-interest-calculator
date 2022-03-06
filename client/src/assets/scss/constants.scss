@@ -1,8 +1,11 @@
 $theme-color: #1d1f20;
 $easing-function: cubic-bezier(0.04, 0.54, 0.25, 1);
 $link-color: #cafe;
-// $primary-button-color: #a6b7ff;
-$primary-button-color: #ff7676a8;
+$primary-button-color: #8fff76a8;
+$primary-button-text-color: #000;
+$disabled-primary-button-color: #8fff7636;
+$disabled-primary-button-text-color: #8282827a;
+
 $form-label-color: #c2d4d6;
 
 @function transition($property, $duration: 0.25s, $easing-function: $easing-function) {

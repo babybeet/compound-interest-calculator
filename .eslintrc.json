@@ -2,7 +2,6 @@
     "ignorePatterns": [
         "node_modules/**/*.*",
         "polyfills.ts",
-        "*.spec.ts",
         "**/migration.stub.ts",
         "dist/*",
         "*.js",

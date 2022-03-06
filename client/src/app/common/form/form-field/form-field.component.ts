@@ -50,4 +50,8 @@ export class FormFieldComponent {
     input.focus();
   }
 
+  _shouldShiftLabelUp() {
+    return String(this.control.value).length > 0 || this.hasPlaceholder;
+  }
+
 }

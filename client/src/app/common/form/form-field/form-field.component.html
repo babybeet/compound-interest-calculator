@@ -6,7 +6,7 @@
     <div class='form-field__input-wrapper'>
         <ng-content></ng-content>
         <label class='form-field__label'
-               [class.shift-label]='control.value.length > 0 || hasPlaceholder'>
+               [class.shift-label]='_shouldShiftLabelUp()'>
             {{label}}
         </label>
         <ng-content select='button'></ng-content>

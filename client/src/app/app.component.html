@@ -1,0 +1,56 @@
+<kun-box>
+    <kun-form formTitle='Compound interest calculator'
+              [form]='_interestCalculatorForm'
+              (formSubmit)='_calculateFinalAmount()'>
+        <kun-short-text-form-field label='Initial amount'
+                                   prefixIcon='attach_money'
+                                   type='number'
+                                   [control]='_findFormControl("initialAmount")'>
+        </kun-short-text-form-field>
+        <kun-short-text-form-field label='Accumulation period'
+                                   prefixIcon='timer'
+                                   type='number'
+                                   [control]='_findFormControl("accumulationPeriod")'>
+        </kun-short-text-form-field>
+        <kun-short-text-form-field label='Interest rate percentage'
+                                   prefixIcon='percent'
+                                   type='number'
+                                   [control]='_findFormControl("interestRatePercentagePeriod")'>
+        </kun-short-text-form-field>
+        <div class='form__action-container'>
+
+            <button mat-button
+                    class='form__action negative-action'
+                    (click)='_clearForm()'>
+                Clear
+                <kun-ripple-on-hover></kun-ripple-on-hover>
+            </button>
+            <button mat-raised-button
+                    class='form__action positive-action'
+                    color='primary'
+                    [disabled]='_interestCalculatorForm.invalid'>
+                Calculate
+                <kun-ripple-on-hover color='rgba(0, 0, 0, 0.25)'></kun-ripple-on-hover>
+            </button>
+        </div>
+    </kun-form>
+</kun-box>
+<p *ngIf='_interestCalculatorForm.valid'
+   class='compound-interest-rate-calculator__result'>
+    An initial amount of
+    {{_interestCalculatorForm.value.initialAmount | currency:'':'symbol':'1.2-2'}}
+    will become
+    <strong>
+        {{_calculateFinalAmount() | currency:'':'symbol':'1.2-2'}}
+    </strong>
+    after {{_interestCalculatorForm.value.accumulationPeriod}}
+    <ng-container [ngPlural]='_interestCalculatorForm.value.accumulationPeriod'>
+        <ng-template ngPluralCase='=1'>
+            period,
+        </ng-template>
+        <ng-template ngPluralCase='other'>
+            periods,
+        </ng-template>
+    </ng-container>
+    at {{_interestCalculatorForm.value.interestRatePercentagePeriod}}% interest rate per period.
+</p>
